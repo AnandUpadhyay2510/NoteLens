@@ -45,8 +45,8 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     # --- OpenRouter API ---
-    OPENROUTER_API_KEY: str = ""
-    DEFAULT_MODEL: str = "anthropic/claude-3.5-sonnet"
+    OPENROUTER_API_KEY: str = "AQ.Ab8RN6JuuMpplmQO4SKIFmdT2dfsSiC3MCwYGmSB-ddR8phDlw"
+    DEFAULT_MODEL: str = "openrouter/free"
 
     # --- Database ---
     DATABASE_URL: str = "sqlite+aiosqlite:///./codelens.db"
