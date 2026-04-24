@@ -45,7 +45,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False
 
     # --- OpenRouter API ---
-    OPENROUTER_API_KEY: str = "API_KEY_HERE"
+    OPENROUTER_API_KEY: str = ""
     DEFAULT_MODEL: str = "openrouter/free"
 
     # --- Database ---
