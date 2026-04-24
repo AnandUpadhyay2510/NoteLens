@@ -1,0 +1,14 @@
+{
+  "name": "avishkar",
+  "version": "1.0.0",
+  "description": "Avishkar - Academic study assistant with Syllabus Filter",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd app && ..\\venv\\Scripts\\python -m uvicorn main:app --reload --host 0.0.0.0 --port 8001",
+    "dev:frontend": "cd relevancy-notes && npm run dev",
+    "install:all": "npm install && cd relevancy-notes && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "codelens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeLens - Top-tier Academic Study Assistant with Syllabus Filter",
+  "scripts": {
+    "setup": "npm install && cd frontend_fixed && npm install && cd ../backend && ..\\venv\\Scripts\\pip install -r requirements.txt",
+    "dev": "concurrently -n \"API,WEB\" -c \"blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && ..\\venv\\Scripts\\python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:frontend": "cd frontend_fixed && npm run dev",
+    "test": "cd backend && ..\\venv\\Scripts\\pytest",
+    "lint": "cd backend && flake8 app",
+    "db:migrate": "cd backend && ..\\venv\\Scripts\\python -m alembic upgrade head",
+    "db:makemigrations": "cd backend && ..\\venv\\Scripts\\python -m alembic revision --autogenerate -m"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

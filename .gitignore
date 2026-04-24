@@ -1,0 +1,54 @@
+# Environment variables
+.env
+
+# Database
+*.db
+*.db-journal
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Uploads
+uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Alembic auto-generated (keep manually created ones)
+# alembic/versions/*.py
+
+# Logs
+*.log
+logs/
+prv-frontend-error.txt
+
+# Dependencies
+node_modules/
+
+# Tool-related / Sub-repos (Optional: ignore if they are separate projects)
+caveman/
+ui-ux-pro-max-skill/
