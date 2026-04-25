@@ -38,10 +38,6 @@ class UserRegisterRequest(BaseModel):
         description="Password. Minimum 8 characters.",
         examples=["SecurePass123!"],
     )
-    role: UserRole = Field(
-        default=UserRole.STUDENT,
-        description="User role: student, educator, or admin.",
-    )
 
 
 class UserLoginRequest(BaseModel):

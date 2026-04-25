@@ -22,7 +22,6 @@ async def test_register_success(client: AsyncClient):
         "email": "new@test.edu",
         "username": "newuser",
         "password": "SecurePass123!",
-        "role": "student",
     })
     assert response.status_code == 201
     data = response.json()
