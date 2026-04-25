@@ -155,6 +155,20 @@ async def value_error_handler(request: Request, exc: ValueError):
     )
 
 
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    """Catch-all for any unhandled exceptions to ensure JSON response."""
+    structlog.get_logger("codelens.error").error("unhandled_exception", error=str(exc))
+    return JSONResponse(
+        status_code=500,
+        content={
+            "error": "InternalServerError",
+            "message": "An unexpected error occurred on the server.",
+            "status_code": 500,
+        },
+    )
+
+
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------

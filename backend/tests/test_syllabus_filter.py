@@ -28,9 +28,9 @@ def test_format_output_structure():
 
     result = format_output(topics, notes)
 
-    assert "# Mapped Relevancy Report" in result
-    assert "## Syllabus Overview" in result
-    assert "## Detailed Notes by Topic" in result
+    assert "# 🎓 Academic Relevancy Report" in result
+    assert "## 📋 Syllabus Curriculum Map" in result
+    assert "## 📝 Synthesized Study Notes" in result
     assert topics in result
     assert notes in result
 
@@ -123,9 +123,9 @@ def test_run_filter_full_pipeline(mock_send):
 
     assert "Algorithms" in result["identified_topics"]
     assert "Binary search" in result["filtered_notes"]
-    assert "# Mapped Relevancy Report" in result["formatted_output"]
-    assert "## Syllabus Overview" in result["formatted_output"]
-    assert "## Detailed Notes by Topic" in result["formatted_output"]
+    assert "# 🎓 Academic Relevancy Report" in result["formatted_output"]
+    assert "## 📋 Syllabus Curriculum Map" in result["formatted_output"]
+    assert "## 📝 Synthesized Study Notes" in result["formatted_output"]
 
     # Verify LLM was called exactly twice (Stage 1 + Stage 2)
     assert mock_send.call_count == 2
