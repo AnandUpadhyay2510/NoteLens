@@ -21,14 +21,30 @@ MAX_RETRIES = 3
 BASE_RETRY_DELAY = 2.0
 
 
+# Global client instance to enable connection pooling
+_client: OpenAI | None = None
+
+
 def _get_client() -> OpenAI:
-    """Create OpenAI client configured for OpenRouter (PRD §4.2)."""
-    if not settings.OPENROUTER_API_KEY:
-        raise LLMAuthenticationError()
-    return OpenAI(
-        api_key=settings.OPENROUTER_API_KEY,
-        base_url="https://openrouter.ai/api/v1",
-    )
+    """
+    Get or create the cached OpenAI client instance (PRD §4.2).
+
+    Optimization: Reusing the same client instance enables HTTP connection
+    pooling, which avoids the overhead of redundant TCP and TLS handshakes
+    on subsequent API calls.
+
+    Expected Impact: Reduces latency of subsequent LLM calls by ~100-300ms
+    depending on network conditions.
+    """
+    global _client
+    if _client is None:
+        if not settings.OPENROUTER_API_KEY:
+            raise LLMAuthenticationError()
+        _client = OpenAI(
+            api_key=settings.OPENROUTER_API_KEY,
+            base_url="https://openrouter.ai/api/v1",
+        )
+    return _client
 
 
 def send_prompt(
