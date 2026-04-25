@@ -71,12 +71,14 @@ async def register(
             detail=f"Username '{request.username}' is already taken.",
         )
 
-    # Create user
+    # Create user - explicitly set role to STUDENT for all public registrations
+    # to prevent privilege escalation vulnerabilities.
+    from app.models.user import UserRole
     user = User(
         email=request.email,
         username=request.username,
         hashed_password=hash_password(request.password),
-        role=request.role,
+        role=UserRole.STUDENT,
     )
     db.add(user)
     await db.flush()
