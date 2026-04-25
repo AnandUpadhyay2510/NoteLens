@@ -1,7 +1,7 @@
 # CodeLens: The Intelligent Syllabus-Aware Study Engine
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yourusername/avishkar/main/docs/assets/hero-banner.png" alt="CodeLens Hero Banner" width="100%">
+  <img src="frontend/images/NoteLens_logo_from_202604251137.jpeg" alt="CodeLens Hero Banner" width="100%">
   
   <h3>Transforming Academic Chaos into Curriculum Clarity</h3>
 
@@ -27,11 +27,11 @@
   <table>
     <tr>
       <td width="50%">
-        <img src="https://raw.githubusercontent.com/yourusername/avishkar/main/docs/assets/screenshot-dashboard.png" alt="Dashboard Mockup"><br>
+        <img src="frontend/images/Screenshot 2026-04-25 101021.png" alt="Dashboard Mockup"><br>
         <sub><b>Feature-Rich Dashboard</b>: Manage your documents with a clean, glassmorphism-inspired UI.</sub>
       </td>
       <td width="50%">
-        <img src="https://raw.githubusercontent.com/yourusername/avishkar/main/docs/assets/screenshot-filter.png" alt="Filter Mockup"><br>
+        <img src="frontend/images/Screenshot 2026-04-25 102400.png" alt="Filter Mockup"><br>
         <sub><b>The Syllabus Filter</b>: Intelligent mapping of notes to curriculum topics.</sub>
       </td>
     </tr>
