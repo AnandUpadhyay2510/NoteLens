@@ -71,7 +71,14 @@ function Index() {
 
       setProgress(80);
 
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (err) {
+        throw new Error("Server returned an invalid response. Please try again.");
+      }
+
       if (!res.ok) throw new Error(data.detail || data.message || "Pipeline failed");
 
       setTopics(data.result.identified_topics || "");
