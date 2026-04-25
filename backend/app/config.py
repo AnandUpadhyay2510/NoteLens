@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     """
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=("../.env", ".env"),
         env_file_encoding="utf-8",
         case_sensitive=True,
         extra="ignore",
@@ -47,9 +47,8 @@ class Settings(BaseSettings):
     # --- OpenRouter API ---
     OPENROUTER_API_KEY: str = ""
     DEFAULT_MODEL: str = "openrouter/free"
-
     # --- Database ---
-    DATABASE_URL: str = "sqlite+aiosqlite:///./codelens.db"
+    DATABASE_URL: str = "sqlite:///codelens.db"
 
     # --- JWT Authentication ---
     JWT_SECRET_KEY: str = "change-this-to-a-random-secret-key-in-production"

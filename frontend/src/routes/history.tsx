@@ -34,7 +34,7 @@ function HistoryPage() {
       const res = await fetchWithAuth("/filter/results");
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to load history");
-      setResults(data);
+      setResults(data.results);
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Failed to load");
     } finally {

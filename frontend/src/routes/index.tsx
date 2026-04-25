@@ -74,10 +74,10 @@ function Index() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || data.message || "Pipeline failed");
 
-      setTopics(data.identified_topics || "");
-      setFiltered(data.filtered_notes || "");
+      setTopics(data.result.identified_topics || "");
+      setFiltered(data.result.filtered_notes || "");
       setProgress(100);
-      toast.success(`Notes filtered in ${data.processing_time_seconds}s`);
+      toast.success(`Notes filtered in ${data.result.processing_time_seconds}s`);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "Pipeline failed";
       setError(msg);

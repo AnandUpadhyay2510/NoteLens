@@ -32,7 +32,7 @@ export function InputPanel({ label, hint, value, onChange, accent }: Props) {
 
       if (res.ok) {
         const data = await res.json();
-        onChange(`DOC-${data.id}`);
+        onChange(`DOC-${data.document.id}`);
         setFileName(f.name);
         toast.success(`Uploaded ${f.name}`);
       } else {

@@ -22,7 +22,7 @@ function LibraryPage() {
       const res = await fetchWithAuth("/documents");
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to load documents");
-      setDocs(data);
+      setDocs(data.documents);
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Failed to load");
     } finally {
@@ -91,17 +91,17 @@ function LibraryPage() {
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    {doc.modality === "audio" ? (
+                    {doc.file_type === "audio" ? (
                       <Mic size={20} className="text-accent" />
                     ) : (
                       <FileText size={20} className="text-accent" />
                     )}
                     <div>
                       <p className="font-display text-lg leading-tight">
-                        {doc.original_filename || "Untitled"}
+                        {doc.filename || "Untitled"}
                       </p>
                       <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                        {doc.modality || "text"} ·{" "}
+                        {doc.file_type || "text"} ·{" "}
                         {doc.created_at
                           ? format(new Date(doc.created_at), "MMM d, yyyy")
                           : "—"}
